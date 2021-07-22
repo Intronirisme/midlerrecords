@@ -1,0 +1,16 @@
+<div class="title">
+    <h1>{{ data.titre }}</h1>
+</div>
+<div id="content1" class="panel">
+    <div id="presentation" class="bubble">
+        {{ data.presentation }}
+    </div>
+</div>
+<div id="content2" class="panel caroussel">
+<div class="carousseltitle">Partenaires</div>
+{% for partner in data.partenaires.all %}
+    <a href="{{ partner.url }}" target="_blank">
+        <div class="card" aria-label="{{ partner.name }}" style="background: center / contain no-repeat url('{{ partner.logo.url }}'),white"></div>
+    </a>
+{% endfor %}
+</div>

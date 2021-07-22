@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    background-color: var(--bg-color);
+}
+
+.contactForm {
+    margin: auto;
+    width: 90%;
+    height: auto;
+}
+
+h1 {
+    font-family: 'fontTitle';
+    width: 100%;
+    text-align: center;
+    font-size: 42px;
+    color: whitesmoke;
+}
+
+label, input, textarea, button {
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 750px;
+    padding: 10px;
+    margin: 5px auto;
+}
+
+input, textarea, button[type=submit] {
+    border-radius: 10px;
+}
+
+input, textarea {
+    border: 2px solid black;
+    font-family: 'fontBody';
+}
+
+label {
+    font-family: 'fontBody';
+    color: whitesmoke;
+    font-weight: 700;
+    font-size: 24px;
+}
+
+textarea {
+    height: 300px;
+}
+
+button[type=submit] {
+    background-color: var(--bg-color);
+    font-family: 'fontBody';
+    border-radius: 18px;
+    transition: .25s;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    font-size: 24px;
+    font-weight: 700;
+    text-align: center;
+}
+
+button[type=submit]:hover {
+    background-color: whitesmoke;
+    color: var(--bg-color);
+}

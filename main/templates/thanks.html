@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merci !</title>
+    <link rel="stylesheet" href="{% static 'css/thanks.css' %}">
+    <style>
+        :root {
+            --bg-color: {{ background }};
+        }
+    
+        @font-face {
+            font-family: 'fontTitle';
+            src: url("{{ fonttitle.url }}");
+        }
+
+        @font-face {
+            font-family: 'fontBody';
+            src: url("{{ fontbody.url }}");
+        }
+    </style>
+</head>
+<body onLoad="setTimeout('RedirectionJavascript()', 3000)">
+    <div class="message">
+        <h1>Merci !</h1>
+        <p>Votre email a bien été envoyé</p>
+    </div>
+    <script>
+        function RedirectionJavascript(){
+          document.location.href="{% url 'midlerrecords' %}"; 
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<div class="largetitle">
+    <div class="titlecontainer">
+        <p>{{ data.titre }}</p>
+    </div>
+    <div class="pricecontainer">
+        <p class="price">{{ data.prix }}€</p><p class="tarif"> {{ data.tarif }}</p>
+    </div>
+</div>
+<div id="content1" class="panel">
+    <div class="bubble description">
+        {{ data.description }}
+    </div>
+</div>
+<div id="content2" class="panel">
+    <ul class="bubble avantagelist">
+    {% for avantage in data.avantages.all %}
+        <li>{{ avantage }}</li>
+    {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,335 @@
+body {
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    background-color: var(--bg-color);
+}
+
+.title {
+    width: 280px;
+    height: 60px;
+    border-radius: 20px;
+    text-align: center;
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 140px);
+    background-color: var(--front-color);
+    display: flex;
+    align-items: center;
+}
+
+h1 {
+    font-family: 'fontTitle';
+    margin: 0;
+    width: 100%;
+    color: whitesmoke;
+}
+
+.animated {
+    animation: 3s cubic-bezier(.45,.05,.55,.95) 1 cuberotation;
+}
+
+.up {
+    transform: rotateX(-90deg) rotateY(0);
+    transition: .8s;
+}
+
+.down {
+    transform: rotateX(90deg) rotateY(0);
+    transition: .8s;
+}
+
+.left {
+    transform: rotateX(0) rotateY(90deg);
+    transition: .8s;
+}
+
+.right {
+    transform: rotateX(0) rotateY(-90deg);
+    transition: .8s;
+}
+
+#cube {
+    --size: 120px;
+    --half-size: calc(var(--size) / 2);
+    width: var(--size);
+    height: var(--size);
+    position: relative;
+    left: calc(50% - var(--half-size));
+    top: calc(50% - var(--half-size));
+    transform-style: preserve-3d;
+    cursor: grab;
+}
+
+.face {
+    width: var(--size);
+    height: var(--size);
+    position: absolute;
+    backface-visibility: hidden;
+}
+
+#front {
+    background: center / 80% no-repeat var(--front-icon),var(--front-color);
+    transform: translateZ(var(--half-size));
+}
+
+#back {
+    background: center / 80% no-repeat var(--back-icon),var(--back-color);
+    transform: rotateY(180deg) translateZ(var(--half-size));
+}
+
+#right {
+    background: center / 80% no-repeat var(--right-icon),var(--right-color);
+    transform: rotateY(90deg) translateZ(var(--half-size));
+}
+
+#left {
+    background: center / 80% no-repeat var(--left-icon),var(--left-color);
+    transform: rotateY(-90deg) translateZ(var(--half-size));
+}
+
+#top {
+    background: center / 80% no-repeat var(--top-icon),var(--top-color);
+    transform: rotateX(90deg) translateZ(var(--half-size));
+}
+
+#bottom {
+    background: center / 80% no-repeat var(--bottom-icon),var(--bottom-color);
+    transform: rotateX(-90deg) translateZ(var(--half-size));
+}
+
+#content {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    transform: scale(0);
+    transition: .4s;
+}
+
+.expand {
+    transform: scale(1) !important;
+}
+
+.panel {
+    width: 100%;
+    position: absolute;
+    height: 30%;
+    display: flex;
+    align-items: center;
+}
+
+#content1 {
+    top: 70px;
+    left: 0;
+}
+
+#content2 {
+    top: calc(70vh - 70px);
+    right: 0;
+}
+
+#contact {
+    font-family: 'fontBody';
+    border-radius: 18px;
+    transition: .25s;
+    border: 3px solid whitesmoke;
+    color: whitesmoke;
+    font-size: 32px;
+    text-align: center;
+    height: 50px;
+    width: 250px;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: calc(100vh - 60px);
+    left: calc(50% - 125px);
+}
+
+#contact > * {
+    width: 100%;
+}
+
+#contact:hover {
+    color: var(--bg-color);
+    background-color: whitesmoke;
+}
+
+.bubble {
+    background-color: whitesmoke;
+    border-radius: 30px;
+    padding: 15px;
+    font-family: 'fontBody';
+    max-width: 500px;
+    margin: auto;
+}
+
+.caroussel {
+    perspective: 1000px;
+    -moz-perspective: 1000px;
+    -webkit-perspective: 1000px;
+    -ms-perspective: 1000px;
+    
+    perspective-origin: center;
+    -moz-perspective-origin: center;
+    -webkit-perspective-origin: center;
+    -ms-perspective-origin: center;
+
+    transform-style: preserve-3d;
+}
+
+.carousseltitle {
+    font-size: 18px;
+    font-family: 'fontBody';
+    font-weight: 700;
+    text-align: center;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: whitesmoke;
+    position: absolute;
+    width: 200px;
+    top: 10px;
+    left: calc(50% - 100px);
+    box-sizing: border-box;
+}
+
+.card {
+    --size: 120px;
+    --half-size: calc(var(--size) / 2);
+    height: var(--size);
+    width: var(--size);
+    position: absolute;
+    left: calc(50% - var(--half-size));
+    top: calc(70% - var(--half-size));
+    animation: var(--duration) linear infinite carousselrotationY;
+    backface-visibility: hidden;
+}
+
+.guide {
+    --size: 80px;
+    --half-size: calc(var(--size) / 2);
+    position: absolute;
+    top: calc(50% - var(--half-size));
+    left: calc(50% - var(--half-size));
+    width: var(--size);
+    height: var(--size);
+    background: center / contain no-repeat url('../svg/doublearrow.svg');
+    animation: 8s linear 1 guideAnim forwards;
+}
+
+@media screen and (min-width: 760px) {
+    #cube {
+        --size: 150px;
+    }
+
+    .carousseltitle {
+        font-size: 22px;
+        width: 250px;
+        top: 0;
+        left: calc(50% - 125px);
+    }
+
+    .card {
+        --size: 200px;
+        top: calc(60% - var(--half-size));
+    }
+
+    .guide {
+        --size: 120px;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    #cube {
+        --size: 200px;
+    }
+
+    .panel {
+        width: 35%;
+        height: 100%;
+    }
+
+    #content1, #content2 {
+        top: 0;
+    }
+
+    .caroussel {
+        padding: 0 25px;
+    }
+
+    .carousseltitle {
+        top: 10px;
+    }
+
+    .card {
+        --size: 300px;
+        animation: var(--duration) linear infinite carousselrotationX;
+    }
+
+    .guide {
+        --size: 180px;
+    }
+}
+
+@keyframes cuberotation {
+    from {
+        transform: rotateX(-20deg) rotateY(0deg);
+    }
+    to {
+        transform: rotateX(0) rotateY(360deg);
+    }
+}
+
+@keyframes carousselrotationY {
+    from {
+        transform: translateZ(calc(var(--d) * -1)) rotateY(calc(var(--rot) + 0deg)) translateZ(var(--d));
+    }
+    to {
+        transform: translateZ(calc(var(--d) * -1)) rotateY(calc(var(--rot) + 360deg)) translateZ(var(--d));
+    }
+}
+
+@keyframes carousselrotationX {
+    from {
+        transform: translateZ(calc(var(--d) * -1)) rotateX(calc(var(--rot) + 0deg)) translateZ(var(--d));
+    }
+    to {
+        transform: translateZ(calc(var(--d) * -1)) rotateX(calc(var(--rot) + 360deg)) translateZ(var(--d));
+    }
+}
+
+@keyframes guideAnim {
+    0% {
+        opacity: 0;
+    }
+    32% {
+        opacity: 0;
+    }
+    42% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+    50% {
+        transform: translate(0, -100%);
+    }
+    66% {
+        transform: translate(0, 100%);
+    }
+    74% {
+        transform: translate(0, 0);
+    }
+    82% {
+        transform: translate(-100%, 0);
+    }
+    90% {
+        opacity: 1;
+    }
+    98% {
+        transform: translate(100%, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(100%, 0);
+    }
+}

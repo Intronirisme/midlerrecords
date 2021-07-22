@@ -1,0 +1,23 @@
+.photocontainer {
+    height: 90%;
+    width: 90%;
+	display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 10px;
+    margin: auto;
+}
+
+.photo {
+    max-width: 100%;
+    max-height: 100%;
+    margin: auto;
+    border-radius: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    .photocontainer {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+}

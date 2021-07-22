@@ -1,0 +1,5 @@
+django
+django-cleanup
+django-colorfield
+django-polymorphic
+Pillow

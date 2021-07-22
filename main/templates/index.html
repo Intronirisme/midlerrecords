@@ -1,0 +1,119 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midler Records</title>
+    <meta name="description" content="{{ description }}">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/accueil.css' %}">
+    <link rel="stylesheet" href="{% static 'css/studio.css' %}">
+    <link rel="stylesheet" href="{% static 'css/prestation.css' %}">
+    <style>
+    :root {
+        --bg-color: {{ background }};
+
+        --front-color: {{ front.color|default:"#fff" }};
+        --front-icon: url("{{ front.icon.url }}");
+
+        --back-color: {{ back.color|default:"#fff" }};
+        --back-icon: url("{{ back.icon.url }}");
+
+        --right-color: {{ right.color|default:"#fff" }};
+        --right-icon: url("{{ right.icon.url }}");
+
+        --left-color: {{ left.color|default:"#fff" }};
+        --left-icon: url("{{ left.icon.url }}");
+
+        --top-color: {{ top.color|default:"#fff" }};
+        --top-icon: url("{{ top.icon.url }}");
+
+        --bottom-color: {{ bottom.color|default:"#fff" }};
+        --bottom-icon: url("{{ bottom.icon.url }}");
+    }
+
+    @font-face {
+        font-family: 'fontTitle';
+        src: url("{{ fonttitle.url }}");
+    }
+
+    @font-face {
+        font-family: 'fontBody';
+        src: url("{{ fontbodylight.url }}");
+        font-weight: 300;
+    }
+
+    @font-face {
+        font-family: 'fontBody';
+        src: url("{{ fontbody.url }}");
+        font-weight: 400;
+    }
+
+    @font-face {
+        font-family: 'fontBody';
+        src: url("{{ fontbodybold.url }}");
+        font-weight: 700;
+    }
+    </style>
+</head>
+<body>
+    {% for page in content %}
+
+    {% if page.class_name == "Accueil" %}
+    <template id="{{ page }}" 
+        data-top="{{ page.top }}"
+        data-left="{{ page.left }}"
+        data-right="{{ page.right }}"
+        data-bottom="{{ page.bottom }}"
+        data-color="{{ page.color }}"
+        data-icon="{{ page.icon.url }}">
+        {% include "accueil.html" with data=page %}
+    </template>
+    {% endif %}
+
+    {% if page.class_name == "Prestation" %}
+    <template id="{{ page }}" 
+        data-top="{{ page.top }}"
+        data-left="{{ page.left }}"
+        data-right="{{ page.right }}"
+        data-bottom="{{ page.bottom }}"
+        data-color="{{ page.color }}"
+        data-icon="{{ page.icon.url }}">
+        {% include "prestation.html" with data=page %}
+    </template>
+    {% endif %}
+
+    {% if page.class_name == "Studio" %}
+    <template id="{{ page }}" 
+        data-top="{{ page.top }}"
+        data-left="{{ page.left }}"
+        data-right="{{ page.right }}"
+        data-bottom="{{ page.bottom }}"
+        data-color="{{ page.color }}"
+        data-icon="{{ page.icon.url }}">
+        {% include "studio.html" with data=page %}
+    </template>
+    {% endif %}
+
+    {% endfor %}
+    <div id="content">
+    </div>
+    <div id="cube" class="animated">
+        <div id="front" class="face"></div>
+        <div id="back" class="face"></div>
+        <div id="right" class="face"></div>
+        <div id="left" class="face"></div>
+        <div id="top" class="face"></div>
+        <div id="bottom" class="face"></div>
+    </div>
+    <div class="guide" aria-label="swipez le cube pour naviguer sur le site"></div>
+    <a href="{% url 'contact' %}">
+        <div id="contact"><strong>Nous Contacter</strong></div>
+    </a>
+    <script src="https://hammerjs.github.io/dist/hammer.js"></script>
+    <script type="text/javascript">let activePage = "{{ front }}";</script>
+    <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+</body>
+</html>

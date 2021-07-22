@@ -1,0 +1,139 @@
+.largetitle {
+    border-radius: 20px;
+    position: absolute;
+    top: 10px;
+    left: calc(50% - 175px);
+    background-color: var(--front-color);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.largetitle > div {
+    display: flex;
+    align-items: center;
+}
+
+.titlecontainer {
+    width: 350px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 20px;
+    color: var(--front-color);
+    font-size: 32px;
+    font-family: 'fontTitle';
+}
+
+.titlecontainer > p {
+    width: 90%;
+    margin-left: 10%;
+}
+
+.pricecontainer {
+    width: 350px;
+    height: 100px;
+    color: whitesmoke;
+    overflow: hidden;
+    text-overflow: clip;
+    white-space: nowrap;
+}
+
+.price {
+    font-size: 56px;
+    margin-left: 10%;
+    font-family: 'fontBody';
+    font-weight: 700;
+}
+
+.tarif {
+    font-size: 32px;
+    margin-left: 15px;
+    font-family: fontBody;
+    font-weight: 400;
+}
+
+.avantagelist {
+    padding: 20px 20px 20px 35px !important;
+    font-size: 18px;
+    min-width: 300px;
+    list-style: none;
+}
+
+.avantagelist li::before {
+    content: '';
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    background: center / cover no-repeat url('../svg/check.svg');
+    margin-right: 10px;
+}
+
+@media screen and (max-width: 760px) {
+    .description {
+        transform: translateY(45px);
+    }
+    .largetitle {
+        width: 350px;
+        animation: opendown 1s cubic-bezier(.65,.05,.36,1) 1 forwards;
+    }
+    .pricecontainer {
+        width: 350px;
+        animation: growheight 1s cubic-bezier(.65,.05,.36,1) 1 forwards;
+    }
+}
+
+@media screen and (min-width: 760px) {
+    .description, .avantagelist {
+        font-size: 22px;
+    }
+    .titlecontainer {
+        height: 100px;
+    }
+    .largetitle {
+        height: 100px;
+        left: calc(50% - 350px);
+        flex-direction: row;
+        animation: openright 1s cubic-bezier(.65,.05,.36,1) 1;
+    }
+    .pricecontainer {
+        height: 100px;
+        animation: growwidth 1s cubic-bezier(.65,.05,.36,1) 1 forwards;
+    }
+}
+
+@keyframes opendown {
+    from {
+        height: 80px;
+    }
+    to {
+        height: 160px;
+    }
+}
+
+@keyframes openright {
+    from {
+        width: 350px;
+    }
+    to {
+        width: 700px;
+    }
+}
+
+@keyframes growheight {
+    from {
+        height: 0px;
+    }
+    to {
+        height: 80px;
+    }
+}
+
+@keyframes growwidth {
+    from {
+        width: 0px;
+    }
+    to {
+        width: 350px;
+    }
+}

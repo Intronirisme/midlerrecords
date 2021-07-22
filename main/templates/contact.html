@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <style>
+        :root {
+            --bg-color: {{ background }};
+        }
+    
+        @font-face {
+            font-family: 'fontTitle';
+            src: url("{{ fonttitle.url }}");
+        }
+    
+        @font-face {
+            font-family: 'fontBody';
+            src: url("{{ fontbodylight.url }}");
+            font-weight: 300;
+        }
+    
+        @font-face {
+            font-family: 'fontBody';
+            src: url("{{ fontbody.url }}");
+            font-weight: 400;
+        }
+    
+        @font-face {
+            font-family: 'fontBody';
+            src: url("{{ fontbodybold.url }}");
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nous Contacter</h1>
+    <form method="post" class="contactForm">
+    {% csrf_token %}
+    {{ form.non_field_errors }}
+        <div>
+            {{ form.name.errors }}
+            <label for="{{ form.name.id_for_label }}">Nom :</label>
+            {{ form.name }}
+        </div>
+        <div>
+            {{ form.email_address.errors }}
+            <label for="{{ form.email_address.id_for_label }}">Email :</label>
+            {{ form.email_address }}
+        </div>
+        <div>
+            {{ form.message.errors }}
+            <label for="{{ form.message.id_for_label }}">Message :</label>
+            {{ form.message }}
+        </div>
+        <button type="submit">Envoyer un Message</button>
+    </form>
+</body>
+</html>

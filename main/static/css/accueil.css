@@ -1,0 +1,9 @@
+#presentation {
+    font-size: 14px;
+}
+
+@media screen and (min-width: 760px) {
+    #presentation {
+        font-size: 20px;
+    }
+}
