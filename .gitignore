@@ -58,6 +58,8 @@ local_settings.py
 production_settings.py
 db.sqlite3
 migrations/
+static/
+media/
 
 # Flask stuff:
 instance/
