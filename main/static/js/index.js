@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     setTimeout(enableNavigation, 4000);
 });
 
-async function enableNavigation() {
+function enableNavigation() {
     console.log('давай !');
     injectTemplate(activePage);
     let hammerCube = new Hammer(document.querySelector('#cube'));

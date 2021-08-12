@@ -20,8 +20,7 @@ def index(request):
         'fontbody': apparence.fontbody,
         'fontbodylight': apparence.fontbodylight,
         'fontbodybold': apparence.fontbodybold,
-        'content': Page.objects.get_real_instances(),
-        'test': Studio.objects.first()
+        'content': Page.objects.get_real_instances()
     }
     return render(request, 'index.html', context)
 
